@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class TodoList extends StatefulWidget {
+class TodoListPage extends StatefulWidget {
   @override
-  _TodoListState createState() => _TodoListState();
+  _TodoListPageState createState() => _TodoListPageState();
 }
 
 enum ShowType { all, todo, done }
 
-class _TodoListState extends State<TodoList> {
+class _TodoListPageState extends State<TodoListPage> {
 
   var _todo = <String, bool>{};
   var _text;
@@ -110,8 +110,13 @@ class _TodoListState extends State<TodoList> {
       ],
     );
 
-    return Column(
-      children: <Widget>[inputBtn, op, Expanded(child: showList(_showType))],
+    return Scaffold(
+        appBar: AppBar(
+          title: Text('Todo List'),
+        ),
+        body:  Column(
+          children: <Widget>[inputBtn, op, Expanded(child: showList(_showType))],
+        )
     );
   }
 
